@@ -1,0 +1,101 @@
+Name	Party	M/F	Age	Categories	Exclusions	Inclusions
+G1	A	M	34	marks_family	G29
+G2	A	F	32	marks_family		
+G3	B	M	40	marks_family	G19,G28	
+G4	B	F	45	marks_family		
+G5	C	M	25	marks_family		G22
+G6	C	F	24	marks_family,bernie_supporter		
+G7	D	M	34	marks_family	G89	G52,G67
+G8	D	F	32	marks_family	G97	
+G9	E	M	38	marks_family,bernie_supporter	G86	
+G10	E	F	37	marks_family	G63	
+G11	F	M	64	marks_family		G58
+G12	F	F	62	marks_family		G14
+G13	G	F	89	marks_family		G45
+G14	G	F	86	marks_family		G37
+G15	H	M	40	marks_family	G78	
+G16	H	F	42	marks_family,bernie_supporter		
+G17	I	M	36	marks_family		
+G18	I	F	36	marks_family		
+G19	J	M	34	marks_family	G79	G83
+G20	J	F	37	marks_family	G58	
+G21	K	M	50	marks_family		
+G22	K	F	47	marks_family,bernie_supporter		
+G23	L	M	41	marks_family		G35
+G24	L	F	41	marks_family	G21	G9
+G25	L	M	11	marks_family		
+G26	M	F	39	marks_family		
+G27	M	M	37	marks_family	G23,G34	
+G28	M	F	9	marks_family		G27
+G29	N	M	25	marks_family		
+G30	N	F	24	jess_family		
+G31	O	M	55	jess_family		G11,G71
+G32	O	F	54	jess_family	G22,G16	
+G33	P	M	78	jess_family		
+G34	P	F	75	jess_family,geek		
+G35	Q	M	63	jess_family		
+G36	Q	F	62	jess_family	G31	G36,G25
+G37	R	M	48	jess_family		
+G38	R	F	36	jess_family,bernie_supporter		
+G39	R	M	37	jess_family,bernie_supporter	G11	
+G40	R	F	34	jess_family	G55	G15
+G41	S	M	33	jess_family,geek		
+G42	S	F	63	jess_family		
+G43	T	M	17	jess_family,clinton_supporter	G37	G74
+G44	T	F	26	jess_family		G54
+G45	U	M	72	jess_family,geek	G63	
+G46	U	F	26	jess_family,geek		
+G47	V	M	29	jess_family		G5
+G48	V	F	21	jess_family,bernie_supporter	G78	
+G49	W	M	48	jess_family		G96
+G50	W	F	52	jess_family		
+G51	X	M	32	jess_family	G44,G38	
+G52	X	F	28	jess_family,geek		G88
+G53	X	M	55	jess_family	G79	
+G54	X	F	79	jess_family		
+G55	Y	M	53	jess_family,geek		G24,G23
+G56	Y	F	67	jess_family	G69	
+G57	Y	M	37	jess_family,bernie_supporter		G9
+G58	Z	F	56	jess_family		
+G59	Z	M	38	marks_friends	G9,G14	
+G60	AA	F	79	marks_friends	G77,G63	G39
+G61	AA	M	25	marks_friends,bernie_supporter		
+G62	BB	F	16	marks_friends		
+G63	BB	M	57	marks_friends		G36,G93
+G64	CC	F	20	marks_friends,bernie_supporter	G73,G45	G32,G27
+G65	CC	M	65	marks_friends,bernie_supporter		
+G66	DD	F	38	marks_friends		
+G67	DD	M	68	marks_friends		
+G68	EE	F	33	marks_friends		G34,G45
+G69	EE	M	64	marks_friends,geek		
+G70	FF	F	24	marks_friends,geek		
+G71	FF	M	57	marks_friends,geek	G13,G84	
+G72	FF	F	17	marks_friends,geek		
+G73	FF	M	77	marks_friends,geek		
+G74	GG	F	64	marks_friends		
+G75	GG	M	33	marks_friends		G49,G86
+G76	HH	F	69	marks_friends		
+G77	HH	M	80	marks_friends		
+G78	JJ	F	53	marks_friends,bernie_supporter		
+G79	JJ	M	10	marks_friends		
+G80	JJ	M	10	marks_friends		
+G81		M	45	single,marks_friends		
+G82		M	38	single,marks_friends		
+G83		M	28	single,marks_friends		
+G84		M	44	single,marks_friends		
+G85		M	35	single,marks_friends	G93,G92	
+G86		M	41	single,marks_friends,geek		
+G87		F	29	single,marks_friends		
+G88		F	31	single,marks_friends		
+G89		F	58	single,marks_friends		G12,G6
+G90		F	52	single,jess_friends	G41,G13	
+G91		F	56	single,jess_friends		
+G92		F	57	single,jess_friends		
+G93		F	48	single,jess_friends		
+G94		F	39	single,jess_friends,clinton_supporter		G99,G57
+G95		M	54	single,jess_friends		
+G96		F	36	single,jess_friends		
+G97		M	32	single,jess_friends,clinton_supporter		
+G98		F	42	single,jess_friends,clinton_supporter		
+G99		M	55	single,jess_friends,clinton_supporter		
+G100		F	28	single,jess_friends		

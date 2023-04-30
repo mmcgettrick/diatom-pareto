@@ -1,0 +1,185 @@
+{
+	"optimizer" : {
+		"problemId" : "1",
+		"optimizerId" : "1",
+		"licensePath" : "",
+		"verbose" : "false",
+		"resources" : [
+		    {
+		    	"className" : "com.diatom.pareto.examples.mill.Orderbook",
+		        "options" : [
+					{"name" : "name", "value" : "book", "type" : "String"},
+					{"name" : "filename", "value" : "conf/mill/orderbook.txt", "type" : "String"}
+				]
+		    },
+		    {
+		    	"className" : "com.diatom.pareto.examples.mill.MillConfiguration",
+		        "options" : [
+					{"name" : "name", "value" : "mill", "type" : "String"},
+					{"name" : "filename", "value" : "conf/mill/mill.cfg", "type" : "String"}
+				]
+		    }
+		],
+		"objectives" : [
+			{
+				"className" : "com.diatom.pareto.examples.mill.ObjectiveLateHighPriorityOrders",
+				"options" : [
+					{"name" : "name", "value" : "LHPO", "type" : "String"},
+					{"name" : "target", "value" : "0.0", "type" : "Double"},
+					{"name" : "active", "value" : "true", "type" : "Boolean"},
+					{"name" : "precision", "value" : "0", "type" : "Integer"}
+				]
+			},
+			{
+				"className" : "com.diatom.pareto.examples.mill.ObjectiveLateOrders",
+				"options" : [
+					{"name" : "name", "value" : "LO", "type" : "String"},
+					{"name" : "target", "value" : "0.0", "type" : "Double"},
+					{"name" : "active", "value" : "true", "type" : "Boolean"},
+					{"name" : "precision", "value" : "0", "type" : "Integer"}
+				]
+			},
+			{
+				"className" : "com.diatom.pareto.examples.mill.ObjectiveSetups",
+				"options" : [
+					{"name" : "name", "value" : "Setup", "type" : "String"},
+					{"name" : "target", "value" : "0.0", "type" : "Double"},
+					{"name" : "active", "value" : "true", "type" : "Boolean"},
+					{"name" : "precision", "value" : "0", "type" : "Integer"}
+				]
+			},
+			{
+				"className" : "com.diatom.pareto.examples.mill.ObjectiveMachineBalancing",
+				"options" : [
+					{"name" : "name", "value" : "Bal", "type" : "String"},
+					{"name" : "target", "value" : "0.0", "type" : "Double"},
+					{"name" : "active", "value" : "true", "type" : "Boolean"},
+					{"name" : "precision", "value" : "0", "type" : "Integer"}
+				]
+			}			
+		],
+		
+		"optimalSolution" : ["LHPO","LO","Setup","Bal"],
+		
+		"activators" : [
+			{
+				"className" : "com.diatom.pareto.examples.mill.PopulationSizeRangeActivator",
+				"options" : [
+					{"name" : "name", "value" : "popAtLeast100", "type" : "String"},
+					{"name" : "min", "value" : "100", "type" : "Integer"}
+				]
+			}
+		],
+		
+		
+		"selectors" : [
+			{
+				"className" : "com.diatom.pareto.examples.mill.NSolutionSelector",
+				"options" : [
+					{"name" : "name", "value" : "pick2", "type" : "String"},
+					{"name" : "N", "value" : "2", "type" : "Integer"}
+				]
+			}
+		],
+		
+		"agents" : [
+			{
+				
+				"className" : "com.diatom.pareto.examples.mill.AgentAssignOrdersRandomly",
+				"options" : [
+					{"name" : "name", "value" : "random", "type" : "String"}
+				]
+			},
+			{
+				
+				"className" : "com.diatom.pareto.examples.mill.AgentAdvanceLateOrders",
+				"options" : [
+					{"name" : "name", "value" : "advance", "type" : "String"}
+				]
+			},
+			{
+				
+				"className" : "com.diatom.pareto.examples.mill.AgentMoveRandomOrder",
+				"options" : [
+					{"name" : "name", "value" : "move", "type" : "String"}
+				]
+			},
+			{
+				
+				"className" : "com.diatom.pareto.examples.mill.AgentSortByDueDate",
+				"options" : [
+					{"name" : "name", "value" : "sort", "type" : "String"}
+				]
+			},
+			{
+				
+				"className" : "com.diatom.pareto.examples.mill.AgentMergeSolutions",
+				"options" : [
+					{"name" : "name", "value" : "merge", "type" : "String"},
+					{"name" : "selector", "value" : "pick2", "type" : "String"}					
+				]
+			},
+			{
+				
+				"className" : "com.diatom.pareto.DefaultDestroyerAgent",
+				"options" : [
+					{"name" : "name", "value" : "mydominated", "type" : "String"},
+					{"name" : "activator", "value" : "popAtLeast100", "type" : "String"},
+					{"name" : "selector", "value" : "DominatedSolutionSelector", "type" : "String"}						
+				]
+			}	
+																			
+		],
+
+		
+		"phases" : [
+			{
+			    "name" : "init",
+			    "iterations" : "1000",
+			    "summaryInterval" : "0",
+			    "agents" : [
+				{
+					"name" : "random",
+					"frequency" : "100"
+				}
+			    ]
+			},
+			
+			{
+			    "name" : "main",
+			    "iterations" : "1000000",
+			    "summaryInterval" : "10000",
+			    "agents" : [
+				{
+					"name" : "advance",
+					"frequency" : "20"
+				},
+				{
+					"name" : "move",
+					"frequency" : "20"
+				},
+				{
+					"name" : "merge",
+					"frequency" : "20"
+				},				
+				{
+					"name" : "sort",
+					"frequency" : "20"
+				},
+				{
+					"name" : "filtered",
+					"frequency" : "10"
+				},							
+				{
+					"name" : "duplicates",
+					"frequency" : "5"
+				},	
+				{
+					"name" : "mydominated",
+					"frequency" : "5"
+				}																			
+			    ]
+			}
+		]	
+	}
+}

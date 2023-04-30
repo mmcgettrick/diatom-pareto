@@ -1,0 +1,158 @@
+{
+	"optimizer" : {
+		"problemId" : "1",
+		"optimizerId" : "1",
+		"licensePath" : "",
+		"verbose" : "false",
+		"resources" : [
+		    {
+		    	"className" : "com.diatom.pareto.examples.wedding.GuestBook",
+		        "options" : [
+					{"name" : "name", "value" : "guestbook", "type" : "String"},
+					{"name" : "filename", "value" : "/home/rachlin/code2/pareto/conf/wedding/guestbook.csv", "type" : "String"}
+				]
+		    },
+		    {
+		    	"className" : "com.diatom.pareto.examples.wedding.SeatingConfiguration",
+		        "options" : [
+					{"name" : "name", "value" : "config", "type" : "String"},
+					{"name" : "filename", "value" : "/home/rachlin/code2/pareto/conf/wedding/seating.cfg", "type" : "String"}
+				]
+		    }
+		],
+
+
+		"objectives" : [
+			{
+				"className" : "com.diatom.pareto.examples.wedding.ObjectiveRequiredTables",
+				"options" : [
+					{"name" : "name", "value" : "tables", "type" : "String"},
+					{"name" : "target", "value" : "0.0", "type" : "Double"},
+					{"name" : "active", "value" : "false", "type" : "Boolean"},
+					{"name" : "precision", "value" : "0", "type" : "Integer"}
+				]
+			},
+
+            {
+            "className" : "com.diatom.pareto.examples.wedding.ObjectiveSmallestTable",
+            "options" : [
+                   {"name" : "name", "value" : "worst", "type" : "String"},
+                   {"name" : "target", "value" : "0.0", "type" : "Double"},
+                   {"name" : "active", "value" : "true", "type" : "Boolean"},
+                   {"name" : "precision", "value" : "0", "type" : "Integer"}
+            ]
+            },
+
+          {
+            "className" : "com.diatom.pareto.examples.wedding.ObjectiveAgeDifference",
+            "options" : [
+              {"name" : "name", "value" : "agedif", "type" : "String"},
+              {"name" : "target", "value" : "0.0", "type" : "Double"},
+              {"name" : "active", "value" : "true", "type" : "Boolean"},
+              {"name" : "precision", "value" : "0", "type" : "Integer"}
+            ]
+          },
+
+          {
+            "className" : "com.diatom.pareto.examples.wedding.ObjectiveSomethingInCommon",
+            "options" : [
+              {"name" : "name", "value" : "common", "type" : "String"},
+              {"name" : "target", "value" : "1.00", "type" : "Double"},
+              {"name" : "active", "value" : "true", "type" : "Boolean"},
+              {"name" : "precision", "value" : "2", "type" : "Integer"}
+            ]
+          },
+          {
+            "className" : "com.diatom.pareto.examples.wedding.ObjectiveBoyGirl",
+            "options" : [
+              {"name" : "name", "value" : "boygirl", "type" : "String"},
+              {"name" : "target", "value" : "1.00", "type" : "Double"},
+              {"name" : "active", "value" : "true", "type" : "Boolean"},
+              {"name" : "precision", "value" : "2", "type" : "Integer"}
+            ]
+          },
+          {
+            "className" : "com.diatom.pareto.examples.wedding.ObjectiveTableViolations",
+            "options" : [
+              {"name" : "name", "value" : "viol", "type" : "String"},
+              {"name" : "target", "value" : "0.00", "type" : "Double"},
+              {"name" : "active", "value" : "true", "type" : "Boolean"},
+              {"name" : "precision", "value" : "0", "type" : "Integer"}
+            ]
+          }
+        ],
+
+
+		"optimalSolution" : ["viol", "common","boygirl", "agedif", "tables","worst"],
+
+		
+
+
+		
+		"agents" : [
+			{
+				
+				"className" : "com.diatom.pareto.examples.wedding.AgentAssignPartiesFirstFit",
+				"options" : [
+					{"name" : "name", "value" : "firstfit", "type" : "String"}
+				]
+			},
+            {
+
+                "className" : "com.diatom.pareto.examples.wedding.AgentSwapTwoRandomGuests",
+                "options" : [
+                    {"name" : "name", "value" : "swapguests", "type" : "String"}
+                ]
+            },
+            {
+                "className" : "com.diatom.pareto.examples.wedding.AgentSwapTwoRandomParties",
+                "options" : [
+                    {"name" : "name", "value" : "swapparties", "type" : "String"}
+                ]
+            }
+																			
+		],
+
+		
+		"phases" : [
+			{
+			    "name" : "init",
+			    "iterations" : "5",
+			    "summaryInterval" : "0",
+			    "agents" : [
+				{
+					"name" : "firstfit",
+					"frequency" : "100"
+				}
+			    ]
+			},
+            {
+            "name" : "main",
+            "iterations" : "10000000",
+            "summaryInterval" : "50000",
+            "agents" : [
+              {
+                "name" : "swapguests",
+                "frequency" : "30"
+              },
+              {
+                "name" : "swapparties",
+                "frequency" : "65"
+              },
+              {
+                "name" : "filtered",
+                "frequency" : "0"
+              },
+              {
+                "name" : "duplicates",
+                "frequency" : "5"
+              },
+              {
+                "name" : "dominated",
+                "frequency" : "5"
+              }
+            ]
+            }
+        ]
+	}
+}
